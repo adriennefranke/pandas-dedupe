@@ -300,3 +300,13 @@ def link_dataframes(dfa, dfb, field_properties):
     df_final = df_final.drop(columns=['dfa_link','dfb_link'])
 
     return df_final
+
+def gazetteer_match_dataframes(df_messy, df_canonical, field_properties):
+
+    settings_file = 'data_matching_learned_settings'
+    training_file = 'data_matching_training.json'
+
+    print('importing data ...')
+
+    df_messy = clean_punctuation(df_messy)
+    specify_type(df_messy, field_properties)
